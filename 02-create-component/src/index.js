@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Outer from './Outer';
+import Inner from './Inner';
 
 ReactDOM.render(
-  <div></div>,
+  <Outer>
+    <Inner/>
+  </Outer>,
   document.getElementById('root')
 );
 
