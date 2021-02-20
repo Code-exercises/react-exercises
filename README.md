@@ -4,7 +4,7 @@
 <details>
 <summary>Create React application</summary>
 
-**Task:** create application with single component.
+**Task:** create application.
 
 **Directory:** `01-create-react-application`
 
@@ -47,6 +47,72 @@ import {render} from 'react-dom'
 render(<h1>Hello</h1>, document.getElementById('root'))
 ```
 </details> 
+
+</details>
+<hr>
+</details>
+
+[comment]: <> (2)
+<details>
+<summary>Create component</summary>
+
+**Task:**
+- create `Outer` component
+  - add header
+  - add content
+  - use `Fragment`  
+- create `Inner` component in the namespace of `Outer` component
+- use `Inner` component inside `Outer` component
+  ```jsx
+  <Outer>
+    <Outer.Inner></Outer.Inner>
+  </Outer>
+  ```
+
+**Directory:** `02-create-component`
+
+[comment]: <> (2.1)
+<details>
+<summary>Solution</summary>
+
+[comment]: <> (2.1.1)
+<details>
+<summary>Create <code>Inner</code> class and extend it from <code>Component</code></summary>
+
+```jsx
+import React, {Component} from 'react';
+
+class Inner extends Component {
+  render() {
+    return <div>Inner component</div>
+  }
+}
+```
+</details>
+
+[component]: <> (2.1.2)
+<details>
+<summary>Create <code>Outer</code> class, use children props for nesting, use field for namespacing</summary>
+
+```jsx
+import React, {Component} from 'react';
+import Inner from './Inner';
+
+class Outer extends Component {
+  render() {
+    return <>
+      <h1>Outer</h1>
+      <p>Text</p>
+      <div>{this.props.children}</div>
+    </>
+  }
+}
+
+Outer.Inner = Inner
+
+export default Outer;
+```
+</details>
 
 </details>
 <hr>
