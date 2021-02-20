@@ -32,6 +32,15 @@ import React from 'react'
 
 [comment]: <> (1.1.3)
 <details>
+<summary>Import <code>render</code> function to render JSX</summary>
+
+```javascript
+import {render} from 'react-dom'
+```
+</details>
+
+[comment]: <> (1.1.4)
+<details>
 <summary>Render content to HTML element with <code>root</code> id</summary>
 
 ```javascript
