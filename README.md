@@ -117,3 +117,66 @@ export default Outer;
 </details>
 <hr>
 </details>
+
+[comment]: <> (3)
+<details>
+<summary>Use properties and state</summary>
+
+**Task:**
+- create parent component that will contain user name in state (`John`)
+- create child component that will display user name from parent component  
+- add button in parent component that will change user name to custom value (`Bob`)
+
+**Directory:** `03-properties-state`
+
+[comment]: <> (3.1)
+<details>
+<summary>Solution</summary>
+
+[comment]: <> (3.1.1)
+<details>
+<summary>Create child component with property binding</summary>
+
+```jsx
+export default class Child extends Component {
+  static defaultProps = {
+    name: 'Jack'
+  }
+
+  render() {
+    const {name} = this.props;
+    return <div>{name}</div>
+  }
+}
+```
+</details>
+
+[comment]: <> (3.1.2)
+<details>
+<summary>Create parent component with state and event handler</summary>
+
+```jsx
+export default class Parent extends Component {
+  static DEFAULT_NAME = 'John';
+
+  state = {
+    name: Parent.DEFAULT_NAME
+  }
+
+  render() {
+    return <>
+      <Child name={this.state.name}/>
+      <button onClick={this.changeName}>Set name to Bob</button>
+    </>
+  }
+
+  changeName = () => {
+    this.setState({name: 'Bob'});
+  }
+}
+```
+</details>
+
+</details>
+
+</details>
